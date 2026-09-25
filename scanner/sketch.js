@@ -10,7 +10,7 @@ function running() {
 }
 
 function setup() {
-    r.InitWindow(windowWidth, windowHeight, "");
+    r.InitWindow(windowWidth, windowHeight, "Scanner");
     r.SetTargetFPS(FPS);
 }
 
@@ -21,7 +21,8 @@ function update() {
 function draw() {
     r.BeginDrawing();
 
-    // draw the current state
+    r.ClearBackground(r.BLACK)
+    r.DrawRectangle(0, 0, 40, windowHeight, r.WHITE)
 
     r.EndDrawing();
 }
