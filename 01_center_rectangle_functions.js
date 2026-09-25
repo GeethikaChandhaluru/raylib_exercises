@@ -8,6 +8,7 @@ const height = 200;
 function centerRectangle(windowDimension, rectangleDimension) {
     return (windowDimension - rectangleDimension) / 2;
 }
+exports.centerRectangle = centerRectangle;
 function setup() {
     r.InitWindow(windowWidth, windowHeight, "Center a Rectangle");
     r.SetTargetFPS(60);
