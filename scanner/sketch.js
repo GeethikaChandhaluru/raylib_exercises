@@ -1,11 +1,14 @@
 const r = require("raylib");
 
-const x = 0;
-const y = 0;
-
 const windowWidth = 600;
 const windowHeight = 400;
 const FPS = 60;
+
+let x = 0;
+let y = 0;
+const width = 40;
+const height = windowHeight;
+const speed = 2;
 
 function running() {
     return !r.WindowShouldClose();
@@ -17,10 +20,9 @@ function setup() {
 }
 
 function update() {
-    // change the state
+    if (x + width < windowWidth)
+        x = x + speed;
 }
-const width = 40;
-const height = windowHeight;
 function draw() {
     r.BeginDrawing();
 
