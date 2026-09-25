@@ -1,5 +1,7 @@
 const r = require("raylib");
 
+const x = 0;
+const y = 0;
 
 const windowWidth = 600;
 const windowHeight = 400;
@@ -17,12 +19,13 @@ function setup() {
 function update() {
     // change the state
 }
-
+const width = 40;
+const height = windowHeight;
 function draw() {
     r.BeginDrawing();
 
     r.ClearBackground(r.BLACK)
-    r.DrawRectangle(0, 0, 40, windowHeight, r.WHITE)
+    r.DrawRectangle(x, y, width, height, r.WHITE)
 
     r.EndDrawing();
 }
