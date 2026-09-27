@@ -4,12 +4,12 @@ const windowWidth = 600;
 const windowHeight = 400;
 const FPS = 60;
 
-const x1 = 180;
-const y1 = 0;
-const x2 = 430;
-const y2 = 0;
-let x3 = 0;
-let y3 = 0;
+const particle1X = 180;
+const particle1Y = 0;
+const particle2X = 430;
+const particle2Y = 0;
+let scannerX = 0;
+let scannerY = 0;
 const scannerWidth = 40;
 const scannerHeight = windowHeight;
 const particleWidth = 120;
@@ -22,8 +22,10 @@ let color = r.WHITE;
 
 function overlap() {
     if (
-        (x3 + scannerWidth > x1 && x3 < x1 + particleWidth) ||
-        (x3 + scannerWidth > x2 && x3 < x2 + particle2Width)
+        (scannerX + scannerWidth > particle1X &&
+            scannerX < particle1X + particleWidth) ||
+        (scannerX + scannerWidth > particle2X &&
+            scannerX < particle2X + particle2Width)
     )
         color = r.RED;
     else color = r.WHITE;
@@ -40,15 +42,15 @@ function setup() {
 }
 
 function update() {
-    x3 = x3 + speed * direction;
+    scannerX = scannerX + speed * direction;
 
-    if (x3 + scannerWidth >= windowWidth) {
-        x3 = windowWidth - scannerWidth;
+    if (scannerX + scannerWidth >= windowWidth) {
+        scannerX = windowWidth - scannerWidth;
         direction = -1;
     }
 
-    if (x3 <= 0) {
-        x3 = 0;
+    if (scannerX <= 0) {
+        scannerX = 0;
         direction = 1;
     }
     overlap();
@@ -58,9 +60,21 @@ function draw() {
     r.BeginDrawing();
 
     r.ClearBackground(r.BLACK);
-    r.DrawRectangle(x1, y1, particleWidth, particleHeight, r.BLUE);
-    r.DrawRectangle(x2, y2, particle2Width, particle2Height, r.BLUE);
-    r.DrawRectangle(x3, y3, scannerWidth, scannerHeight, color);
+    r.DrawRectangle(
+        particle1X,
+        particle1Y,
+        particleWidth,
+        particleHeight,
+        r.BLUE,
+    );
+    r.DrawRectangle(
+        particle2X,
+        particle2Y,
+        particle2Width,
+        particle2Height,
+        r.BLUE,
+    );
+    r.DrawRectangle(scannerX, scannerY, scannerWidth, scannerHeight, color);
 
     r.EndDrawing();
 }
