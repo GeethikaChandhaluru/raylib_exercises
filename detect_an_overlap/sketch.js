@@ -15,6 +15,16 @@ const particleHeight = windowHeight;
 const speed = 2;
 let scannerRange1 = scannerWidth;
 let scannerRange2 = -1;
+let color = r.WHITE;
+
+function overlap() {
+    // if (scannerRange1 - scannerWidth > x1 + particleWidth)
+    //     return (color = r.WHITE);
+    // if (x1 < scannerRange1) return (color = r.RED);
+    if (scannerRange1 < x1) return (color = r.WHITE);
+    if (scannerRange1 - scannerWidth < x1 + particleWidth)
+        return (color = r.RED);
+}
 
 function running() {
     return !r.WindowShouldClose();
@@ -32,7 +42,7 @@ function update() {
         scannerRange1 = scannerRange1 + speed;
     }
     if (scannerRange1 === windowWidth) {
-        scannerRange1 = windowWidth + speed;
+        scannerRange1 = windowWidth + 1;
         scannerRange2 = windowWidth - scannerWidth;
     }
     if (0 < scannerRange2) {
@@ -43,6 +53,7 @@ function update() {
         scannerRange1 = scannerWidth;
         scannerRange2 = -1;
     }
+    overlap();
 }
 
 function draw() {
@@ -50,7 +61,7 @@ function draw() {
 
     r.ClearBackground(r.BLACK);
     r.DrawRectangle(x1, y1, particleWidth, particleHeight, r.BLUE);
-    r.DrawRectangle(x2, y2, scannerWidth, scannerHeight, r.WHITE);
+    r.DrawRectangle(x2, y2, scannerWidth, scannerHeight, color);
 
     r.EndDrawing();
 }
