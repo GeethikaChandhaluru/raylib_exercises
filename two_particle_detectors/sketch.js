@@ -44,28 +44,32 @@ function scanner1() {
     }
 }
 
-// function scanner2() {
-//     scanner2X = scanner2X + speed2 * direction2;
-//     if (scanner2X + scannerWidth >= windowWidth) {
-//         scanner2X = windowWidth - scannerWidth;
-//         direction2 = -1;
-//     }
+function scanner2() {
+    scanner2X = scanner2X + speed2 * direction2;
+    if (scanner2X + scanner2Width >= windowWidth) {
+        scanner2X = windowWidth - scanner2Width;
+        direction2 = -1;
+    }
 
-//     if (scanner2X <= 0) {
-//         scanner2X = 0;
-//         direction2 = 1;
-//     }
-// }
+    if (scanner2X <= particle1X + particleWidth) {
+        scanner2X = particle1X + particleWidth;
+        direction2 = 1;
+    }
+}
 
 function overlap() {
     if (
         (scannerX + scannerWidth > particle1X &&
             scannerX < particle1X + particleWidth) ||
-        (scannerX + scannerWidth > particle2X &&
-            scannerX < particle2X + particle2Width)
-    )
+        (scanner2X + scanner2Width > particle2X &&
+            scanner2X < particle2X + particle2Width)
+    ) {
         color1 = r.RED;
-    else color1 = r.WHITE;
+        color2 = r.RED;
+    } else {
+        color1 = r.WHITE;
+        color2 = r.WHITE;
+    }
 }
 
 function running() {
@@ -80,7 +84,7 @@ function setup() {
 
 function update() {
     scanner1();
-    // scanner2();
+    scanner2();
 
     overlap();
 }
