@@ -37,6 +37,7 @@ const speed2 = 3;
 
 let direction = 1;
 let direction2 = 1;
+let direction3 = 1;
 
 let color1 = r.WHITE;
 let color2 = r.WHITE;
@@ -68,6 +69,19 @@ function scanner2() {
     }
 }
 
+function scanner3() {
+    scanner3Y = scanner3Y + speed2 * direction3;
+    if (scanner3Y + scanner3Height >= windowHeight) {
+        scanner3Y = windowHeight - scanner3Height;
+        direction3 = -1;
+    }
+
+    if (scanner3Y <= 0) {
+        scanner3Y = 0;
+        direction3 = 1;
+    }
+}
+
 function overlap() {
     if (
         scannerX + scannerWidth > particle1X &&
@@ -96,6 +110,7 @@ function setup() {
 function update() {
     scanner1();
     scanner2();
+    scanner3();
 
     overlap();
 }
