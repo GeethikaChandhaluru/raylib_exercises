@@ -34,6 +34,7 @@ const scanner3Height = 40;
 
 const speed = 2;
 const speed2 = 3;
+const speed3 = 2;
 
 let direction = 1;
 let direction2 = 1;
@@ -70,7 +71,7 @@ function scanner2() {
 }
 
 function scanner3() {
-    scanner3Y = scanner3Y + speed2 * direction3;
+    scanner3Y = scanner3Y + speed3 * direction3;
     if (scanner3Y + scanner3Height >= windowHeight) {
         scanner3Y = windowHeight - scanner3Height;
         direction3 = -1;
