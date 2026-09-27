@@ -4,12 +4,16 @@ const windowWidth = 600;
 const windowHeight = 400;
 const FPS = 60;
 
-let x = 0;
-let y = 0;
-const width = 40;
-const height = windowHeight;
+const x1 = 180;
+const y1 = 0;
+let x2 = 0;
+let y2 = 0;
+const scannerWidth = 40;
+const scannerHeight = windowHeight;
+const particleWidth = 100;
+const particleHeight = windowHeight;
 const speed = 2;
-let range1 = width;
+let range1 = scannerWidth;
 let range2 = -1;
 
 function running() {
@@ -24,19 +28,19 @@ function setup() {
 
 function update() {
     if (range1 < windowWidth) {
-        x = x + speed;
+        x2 = x2 + speed;
         range1 = range1 + speed;
     }
     if (range1 === windowWidth) {
         range1 = windowWidth + speed;
-        range2 = windowWidth - width;
+        range2 = windowWidth - scannerWidth;
     }
     if (0 < range2) {
-        x = x - speed;
+        x2 = x2 - speed;
         range2 = range2 - speed;
     }
     if (range2 === 0) {
-        range1 = width;
+        range1 = scannerWidth;
         range2 = -1;
     }
 }
@@ -45,7 +49,8 @@ function draw() {
     r.BeginDrawing();
 
     r.ClearBackground(r.BLACK);
-    r.DrawRectangle(x, y, width, height, r.WHITE);
+    r.DrawRectangle(x1, y1, particleWidth, particleHeight, r.BLUE);
+    r.DrawRectangle(x2, y2, scannerWidth, scannerHeight, r.WHITE);
 
     r.EndDrawing();
 }
