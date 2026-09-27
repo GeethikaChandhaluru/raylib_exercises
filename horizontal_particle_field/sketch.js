@@ -8,11 +8,15 @@ const particle1X = 180;
 const particle1Y = 0;
 const particle2X = windowWidth / 2 + 100;
 const particle2Y = 0;
+const particle3X = 0;
+const particle3Y = 180;
 
 const particleWidth = 120;
 const particleHeight = windowHeight;
 const particle2Width = 10;
 const particle2Height = windowHeight;
+const particle3Width = windowWidth;
+const particle3Height = 20;
 
 let scannerX = 0;
 let scannerY = 0;
@@ -112,6 +116,13 @@ function draw() {
         particle2Y,
         particle2Width,
         particle2Height,
+        r.BLUE,
+    );
+    r.DrawRectangle(
+        particle3X,
+        particle3Y,
+        particle3Width,
+        particle3Height,
         r.BLUE,
     );
     r.DrawRectangle(scannerX, scannerY, scannerWidth, scannerHeight, color1);
