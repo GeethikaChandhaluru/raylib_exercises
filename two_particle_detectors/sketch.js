@@ -1,6 +1,6 @@
 const r = require("raylib");
 
-const windowWidth = 600;
+const windowWidth = 900;
 const windowHeight = 400;
 const FPS = 60;
 
