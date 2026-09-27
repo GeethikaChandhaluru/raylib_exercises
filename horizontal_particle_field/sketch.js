@@ -95,6 +95,12 @@ function overlap() {
     )
         color2 = r.RED;
     else color2 = r.WHITE;
+    if (
+        scanner3Y + scanner3Height > particle3Y &&
+        scanner3Y < particle3Y + particle3Height
+    )
+        color3 = r.RED;
+    else color3 = r.WHITE;
 }
 
 function running() {
