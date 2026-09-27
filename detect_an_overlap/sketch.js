@@ -17,7 +17,8 @@ let direction = 1;
 let color = r.WHITE;
 
 function overlap() {
-    //code here
+    if (x2 + scannerWidth > x1 && x2 < x1 + particleWidth) color = r.RED;
+    else color = r.WHITE;
 }
 
 function running() {
