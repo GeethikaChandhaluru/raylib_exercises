@@ -13,8 +13,8 @@ const scannerHeight = windowHeight;
 const particleWidth = 120;
 const particleHeight = windowHeight;
 const speed = 2;
-let range1 = scannerWidth;
-let range2 = -1;
+let scannerRange1 = scannerWidth;
+let scannerRange2 = -1;
 
 function running() {
     return !r.WindowShouldClose();
@@ -27,21 +27,21 @@ function setup() {
 }
 
 function update() {
-    if (range1 < windowWidth) {
+    if (scannerRange1 < windowWidth) {
         x2 = x2 + speed;
-        range1 = range1 + speed;
+        scannerRange1 = scannerRange1 + speed;
     }
-    if (range1 === windowWidth) {
-        range1 = windowWidth + speed;
-        range2 = windowWidth - scannerWidth;
+    if (scannerRange1 === windowWidth) {
+        scannerRange1 = windowWidth + speed;
+        scannerRange2 = windowWidth - scannerWidth;
     }
-    if (0 < range2) {
+    if (0 < scannerRange2) {
         x2 = x2 - speed;
-        range2 = range2 - speed;
+        scannerRange2 = scannerRange2 - speed;
     }
-    if (range2 === 0) {
-        range1 = scannerWidth;
-        range2 = -1;
+    if (scannerRange2 === 0) {
+        scannerRange1 = scannerWidth;
+        scannerRange2 = -1;
     }
 }
 
