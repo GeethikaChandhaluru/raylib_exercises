@@ -8,24 +8,31 @@ const particle1X = 180;
 const particle1Y = 0;
 const particle2X = 430;
 const particle2Y = 0;
-let scannerX = 0;
-let scannerY = 0;
-let scanner2X = 0;
-let scanner2Y = 0;
-const scannerWidth = 40;
-const scannerHeight = windowHeight;
-const scanner2Width = 40;
-const scanner2Height = windowHeight;
+
 const particleWidth = 120;
 const particleHeight = windowHeight;
 const particle2Width = 10;
 const particle2Height = windowHeight;
+
+let scannerX = 0;
+let scannerY = 0;
+let scanner2X = particle1X + particleWidth;
+let scanner2Y = 0;
+
+const scannerWidth = 40;
+const scannerHeight = windowHeight;
+const scanner2Width = 40;
+const scanner2Height = windowHeight;
+
 const speed = 2;
+const speed2 = 3;
 let direction = 1;
+let direction2 = 1;
 let color1 = r.WHITE;
 let color2 = r.WHITE;
 
 function scanner1() {
+    scannerX = scannerX + speed * direction;
     if (scannerX + scannerWidth >= particle1X + particleWidth) {
         scannerX = particle1X + particleWidth - scannerWidth;
         direction = -1;
@@ -38,14 +45,15 @@ function scanner1() {
 }
 
 // function scanner2() {
-//     if (scannerX + scannerWidth >= windowWidth) {
-//         scannerX = windowWidth - scannerWidth;
-//         direction = -1;
+//     scanner2X = scanner2X + speed2 * direction2;
+//     if (scanner2X + scannerWidth >= windowWidth) {
+//         scanner2X = windowWidth - scannerWidth;
+//         direction2 = -1;
 //     }
 
-//     if (scannerX <= 0) {
-//         scannerX = 0;
-//         direction = 1;
+//     if (scanner2X <= 0) {
+//         scanner2X = 0;
+//         direction2 = 1;
 //     }
 // }
 
@@ -71,8 +79,6 @@ function setup() {
 }
 
 function update() {
-    scannerX = scannerX + speed * direction;
-
     scanner1();
     // scanner2();
 
