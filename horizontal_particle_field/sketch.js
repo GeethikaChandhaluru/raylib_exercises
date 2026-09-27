@@ -18,20 +18,25 @@ let scannerX = 0;
 let scannerY = 0;
 let scanner2X = particle1X + particleWidth;
 let scanner2Y = 0;
+let scanner3X = 0;
+let scanner3Y = 0;
 
 const scannerWidth = 40;
 const scannerHeight = windowHeight;
 const scanner2Width = 40;
 const scanner2Height = windowHeight;
+const scanner3Width = windowWidth;
+const scanner3Height = 40;
 
 const speed = 2;
-const speed2 = 4;
+const speed2 = 3;
 
 let direction = 1;
 let direction2 = 1;
 
 let color1 = r.WHITE;
 let color2 = r.WHITE;
+let color3 = r.WHITE;
 
 function scanner1() {
     scannerX = scannerX + speed * direction;
@@ -116,6 +121,13 @@ function draw() {
         scanner2Width,
         scanner2Height,
         color2,
+    );
+    r.DrawRectangle(
+        scanner3X,
+        scanner3Y,
+        scanner3Width,
+        scanner3Height,
+        color3,
     );
 
     r.EndDrawing();
