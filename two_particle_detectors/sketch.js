@@ -1,6 +1,6 @@
 const r = require("raylib");
 
-const windowWidth = 900;
+const windowWidth = 600;
 const windowHeight = 400;
 const FPS = 60;
 
@@ -59,17 +59,17 @@ function scanner2() {
 
 function overlap() {
     if (
-        (scannerX + scannerWidth > particle1X &&
-            scannerX < particle1X + particleWidth) ||
-        (scanner2X + scanner2Width > particle2X &&
-            scanner2X < particle2X + particle2Width)
-    ) {
+        scannerX + scannerWidth > particle1X &&
+        scannerX < particle1X + particleWidth
+    )
         color1 = r.RED;
+    else color1 = r.WHITE;
+    if (
+        scanner2X + scanner2Width > particle2X &&
+        scanner2X < particle2X + particle2Width
+    )
         color2 = r.RED;
-    } else {
-        color1 = r.WHITE;
-        color2 = r.WHITE;
-    }
+    else color2 = r.WHITE;
 }
 
 function running() {
