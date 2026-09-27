@@ -25,6 +25,30 @@ let direction = 1;
 let color1 = r.WHITE;
 let color2 = r.WHITE;
 
+function scanner1() {
+    if (scannerX + scannerWidth >= particle1X + particleWidth) {
+        scannerX = particle1X + particleWidth - scannerWidth;
+        direction = -1;
+    }
+
+    if (scannerX <= 0) {
+        scannerX = 0;
+        direction = 1;
+    }
+}
+
+// function scanner2() {
+//     if (scannerX + scannerWidth >= windowWidth) {
+//         scannerX = windowWidth - scannerWidth;
+//         direction = -1;
+//     }
+
+//     if (scannerX <= 0) {
+//         scannerX = 0;
+//         direction = 1;
+//     }
+// }
+
 function overlap() {
     if (
         (scannerX + scannerWidth > particle1X &&
@@ -49,15 +73,9 @@ function setup() {
 function update() {
     scannerX = scannerX + speed * direction;
 
-    if (scannerX + scannerWidth >= windowWidth) {
-        scannerX = windowWidth - scannerWidth;
-        direction = -1;
-    }
+    scanner1();
+    // scanner2();
 
-    if (scannerX <= 0) {
-        scannerX = 0;
-        direction = 1;
-    }
     overlap();
 }
 
