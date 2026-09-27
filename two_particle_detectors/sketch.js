@@ -6,7 +6,7 @@ const FPS = 60;
 
 const particle1X = 180;
 const particle1Y = 0;
-const particle2X = 430;
+const particle2X = windowWidth / 2 + 100;
 const particle2Y = 0;
 
 const particleWidth = 120;
@@ -25,16 +25,18 @@ const scanner2Width = 40;
 const scanner2Height = windowHeight;
 
 const speed = 2;
-const speed2 = 3;
+const speed2 = 4;
+
 let direction = 1;
 let direction2 = 1;
+
 let color1 = r.WHITE;
 let color2 = r.WHITE;
 
 function scanner1() {
     scannerX = scannerX + speed * direction;
-    if (scannerX + scannerWidth >= particle1X + particleWidth) {
-        scannerX = particle1X + particleWidth - scannerWidth;
+    if (scannerX + scannerWidth >= windowWidth / 2) {
+        scannerX = windowWidth / 2 - scannerWidth;
         direction = -1;
     }
 
@@ -51,8 +53,8 @@ function scanner2() {
         direction2 = -1;
     }
 
-    if (scanner2X <= particle1X + particleWidth) {
-        scanner2X = particle1X + particleWidth;
+    if (scanner2X <= windowWidth / 2) {
+        scanner2X = windowWidth / 2;
         direction2 = 1;
     }
 }
