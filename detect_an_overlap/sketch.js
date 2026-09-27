@@ -13,17 +13,11 @@ const scannerHeight = windowHeight;
 const particleWidth = 120;
 const particleHeight = windowHeight;
 const speed = 2;
-let scannerRange1 = scannerWidth;
-let scannerRange2 = -1;
+let direction = 1;
 let color = r.WHITE;
 
 function overlap() {
-    // if (scannerRange1 - scannerWidth > x1 + particleWidth)
-    //     return (color = r.WHITE);
-    // if (x1 < scannerRange1) return (color = r.RED);
-    if (scannerRange1 < x1) return (color = r.WHITE);
-    if (scannerRange1 - scannerWidth < x1 + particleWidth)
-        return (color = r.RED);
+    //code here
 }
 
 function running() {
@@ -37,21 +31,16 @@ function setup() {
 }
 
 function update() {
-    if (scannerRange1 < windowWidth) {
-        x2 = x2 + speed;
-        scannerRange1 = scannerRange1 + speed;
+    x2 = x2 + speed * direction;
+
+    if (x2 + scannerWidth >= windowWidth) {
+        x2 = windowWidth - scannerWidth;
+        direction = -1;
     }
-    if (scannerRange1 === windowWidth) {
-        scannerRange1 = windowWidth + 1;
-        scannerRange2 = windowWidth - scannerWidth;
-    }
-    if (0 < scannerRange2) {
-        x2 = x2 - speed;
-        scannerRange2 = scannerRange2 - speed;
-    }
-    if (scannerRange2 === 0) {
-        scannerRange1 = scannerWidth;
-        scannerRange2 = -1;
+
+    if (x2 <= 0) {
+        x2 = 0;
+        direction = 1;
     }
     overlap();
 }
