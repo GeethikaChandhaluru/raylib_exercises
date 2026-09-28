@@ -18,7 +18,7 @@ let particle1End = particle1Start + particle1Width;
 
 const particle2Start = 400;
 const particle2Y = 0;
-const particle2Width = 50;
+const particle2Width = 30;
 const particle2Height = windowHeight;
 let particle2End = particle2Start + particle2Width;
 
