@@ -1,6 +1,7 @@
 const r = require("raylib");
 const p1 = require("./particle1");
 const p2 = require("./particle2");
+const p3 = require("./particle3");
 
 const windowWidth = 600;
 const windowHeight = 400;
@@ -103,6 +104,7 @@ function draw() {
     r.ClearBackground(r.BLACK);
     r.DrawRectangle(p1.start, p1.y, p1.width, p1.height, r.DARKBLUE);
     r.DrawRectangle(p2.start, p2.y, p2.width, p2.height, r.DARKBLUE);
+    r.DrawRectangle(p3.start, p3.y, p3.width, p3.height, r.DARKBLUE);
     r.DrawRectangle(detectorStart, 0, detectorWidth, windowHeight, color1);
     r.DrawRectangle(detector2_Start, 0, detector2_Width, windowHeight, color2);
 
