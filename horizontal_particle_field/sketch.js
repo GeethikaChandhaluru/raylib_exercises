@@ -109,9 +109,9 @@ function running() {
 }
 
 function setup() {
+    r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(windowWidth, windowHeight, "Scanner");
     r.SetTargetFPS(FPS);
-    // r.SetTraceLogLevel(r.LOG_NONE);
 }
 
 function update() {
