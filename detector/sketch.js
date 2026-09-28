@@ -5,17 +5,16 @@ const windowHeight = 400;
 const FPS = 60;
 
 let detectorStart = 0;
-
-const detectorWidth = 30;
 let detectorEnd;
+const detectorWidth = 30;
 
 let velocity = 3;
 
-const particle1X = 200;
+const particleStart = 200;
 const particle1Y = 0;
 const particle1Width = 100;
 const particle1Height = windowHeight;
-let particle1End = particle1X + particle1Width;
+let particle1End = particleStart + particle1Width;
 
 let color = r.WHITE;
 function drawRange() {
@@ -57,7 +56,7 @@ function update() {
     color = detectsParticle(
         detectorStart,
         detectorEnd,
-        particle1X,
+        particleStart,
         particle1End,
     )
         ? r.RED
@@ -69,7 +68,7 @@ function draw() {
 
     r.ClearBackground(r.BLACK);
     r.DrawRectangle(
-        particle1X,
+        particleStart,
         particle1Y,
         particle1Width,
         particle1Height,
