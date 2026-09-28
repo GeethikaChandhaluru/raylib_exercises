@@ -29,12 +29,6 @@ function outOfRange(start, end) {
     }
 }
 
-function checkRange() {
-    detectorStart = changeDetectorStart(detectorStart);
-    detectorEnd = changeDetectorEnd(detectorStart, detectorWidth);
-    outOfRange(detectorStart, detectorEnd);
-}
-
 function running() {
     return !r.WindowShouldClose();
 }
@@ -46,7 +40,9 @@ function setup() {
 }
 
 function update() {
-    checkRange();
+    detectorStart = changeDetectorStart(detectorStart);
+    detectorEnd = changeDetectorEnd(detectorStart, detectorWidth);
+    outOfRange(detectorStart, detectorEnd);
 }
 
 function draw() {
