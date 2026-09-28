@@ -1,4 +1,6 @@
 const r = require("raylib");
+const p1 = require("./particle1");
+const p2 = require("./particle2");
 
 const windowWidth = 600;
 const windowHeight = 400;
@@ -8,24 +10,12 @@ let detectorStart = 0;
 let detectorEnd;
 const detectorWidth = 30;
 
-let detector2_Start = 0;
+let detector2_Start = windowWidth / 2;
 let detector2_End;
 const detector2_Width = 30;
 
 let velocity = 4;
 let velocity2 = 3;
-
-const particle1Start = 200;
-const particle1Y = 0;
-const particle1Width = 100;
-const particle1Height = windowHeight;
-let particle1End = particle1Start + particle1Width;
-
-const particle2Start = 400;
-const particle2Y = 0;
-const particle2Width = 30;
-const particle2Height = windowHeight;
-let particle2End = particle2Start + particle2Width;
 
 let color1 = r.WHITE;
 let color2 = r.WHITE;
@@ -73,7 +63,7 @@ function update() {
     velocity = changeDirection(
         detectorStart,
         detectorEnd,
-        windowWidth,
+        windowWidth / 2,
         0,
         velocity,
     );
@@ -84,26 +74,26 @@ function update() {
         detector2_Start,
         detector2_End,
         windowWidth,
-        0,
+        windowWidth / 2,
         velocity2,
     );
 
     color1 = changeColor(
         detectorStart,
         detectorEnd,
-        particle1Start,
-        particle1End,
-        particle2Start,
-        particle2End,
+        p1.start,
+        p1.end,
+        p2.start,
+        p2.end,
     );
 
     color2 = changeColor(
         detector2_Start,
         detector2_End,
-        particle1Start,
-        particle1End,
-        particle2Start,
-        particle2End,
+        p1.start,
+        p1.end,
+        p2.start,
+        p2.end,
     );
 }
 
@@ -111,20 +101,8 @@ function draw() {
     r.BeginDrawing();
 
     r.ClearBackground(r.BLACK);
-    r.DrawRectangle(
-        particle1Start,
-        particle1Y,
-        particle1Width,
-        particle1Height,
-        r.DARKBLUE,
-    );
-    r.DrawRectangle(
-        particle2Start,
-        particle2Y,
-        particle2Width,
-        particle2Height,
-        r.DARKBLUE,
-    );
+    r.DrawRectangle(p1.start, p1.y, p1.width, p1.height, r.DARKBLUE);
+    r.DrawRectangle(p2.start, p2.y, p2.width, p2.height, r.DARKBLUE);
     r.DrawRectangle(detectorStart, 0, detectorWidth, windowHeight, color1);
     r.DrawRectangle(detector2_Start, 0, detector2_Width, windowHeight, color2);
 
