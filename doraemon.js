@@ -8,30 +8,33 @@ while (!r.WindowShouldClose()) {
     r.BeginDrawing();
     r.ClearBackground(r.LIGHTGRAY);
 
-    //right hand 
-    r.DrawCircle(177, 310, 24, r.BLACK)
-    r.DrawCircle(177, 310, 21, r.WHITE)
+    //right hand
+    r.DrawCircle(177, 310, 24, r.BLACK);
+    r.DrawCircle(177, 310, 21, r.WHITE);
     r.DrawTriangle(
         { x: 279, y: 202 },
         { x: 172, y: 286 },
         { x: 271, y: 255 },
-        r.BLACK)
+        r.BLACK,
+    );
     r.DrawTriangle(
         { x: 284, y: 200 },
         { x: 176, y: 286 },
         { x: 275, y: 255 },
-        r.BLUE)
+        r.BLUE,
+    );
     r.DrawTriangle(
         { x: 275, y: 254 },
         { x: 176, y: 290 },
         { x: 202, y: 318 },
-        r.BLACK)
+        r.BLACK,
+    );
     r.DrawTriangle(
         { x: 275, y: 250 },
         { x: 176, y: 286 },
         { x: 202, y: 314 },
-        r.BLUE)
-
+        r.BLUE,
+    );
 
     // ================= LEFT HAND =================
 
@@ -42,30 +45,29 @@ while (!r.WindowShouldClose()) {
         { x: 421, y: 202 },
         { x: 429, y: 255 },
         { x: 528, y: 286 },
-        r.BLACK
+        r.BLACK,
     );
 
     r.DrawTriangle(
         { x: 416, y: 200 },
         { x: 425, y: 255 },
         { x: 524, y: 286 },
-        r.BLUE
+        r.BLUE,
     );
 
     r.DrawTriangle(
         { x: 425, y: 254 },
         { x: 498, y: 318 },
         { x: 524, y: 290 },
-        r.BLACK
+        r.BLACK,
     );
 
     r.DrawTriangle(
         { x: 425, y: 250 },
         { x: 498, y: 314 },
         { x: 524, y: 286 },
-        r.BLUE
+        r.BLUE,
     );
-
 
     r.DrawCircle(350, 120, 102, r.BLACK); //faceOutline
     r.DrawCircle(350, 120, 100, r.BLUE); //face
@@ -77,10 +79,10 @@ while (!r.WindowShouldClose()) {
     r.DrawCircle(350, 140, 80, r.WHITE); //whiteFace
     r.DrawCircle(350, 270, 80, r.WHITE); //whiteBottom
 
-    r.DrawEllipse(310, 375, 42, 22, r.BLACK)
-    r.DrawEllipse(310, 375, 40, 20, r.WHITE)
-    r.DrawEllipse(392, 375, 42, 22, r.BLACK)
-    r.DrawEllipse(392, 375, 40, 20, r.WHITE)
+    r.DrawEllipse(310, 375, 42, 22, r.BLACK);
+    r.DrawEllipse(310, 375, 40, 20, r.WHITE);
+    r.DrawEllipse(392, 375, 42, 22, r.BLACK);
+    r.DrawEllipse(392, 375, 40, 20, r.WHITE);
 
     r.DrawCircle(350, 130, 50, r.BLACK); //mouthOl
     r.DrawCircle(350, 130, 47, r.RED); //mouth
@@ -115,7 +117,6 @@ while (!r.WindowShouldClose()) {
 
     r.DrawCircle(338, 70, 5, r.BLACK); //rightEyeBall
     r.DrawCircle(380, 70, 5, r.BLACK); //leftEyeBall
-
 
     r.DrawRectangle(278, 198, 143, 14, r.BLACK); //beltOutline
     r.DrawRectangle(280, 200, 139, 10, r.RED); //belt
