@@ -3,9 +3,17 @@ const p1 = require("./particle1");
 const p2 = require("./particle2");
 const p3 = require("./particle3");
 const d = require("./detectorFunctions");
-const d1 = require("./detector1");
+// const d1 = require("./detector1");
 const d2 = require("./detector2");
 const d3 = require("./detector3");
+
+const d1 = {
+    start: 0,
+    end: 0,
+    width: 30,
+    velocity: 4,
+    color: r.WHITE,
+};
 
 const windowWidth = 600;
 const windowHeight = 400;
