@@ -3,9 +3,10 @@ const p1 = require("./particle1");
 const p2 = require("./particle2");
 const p3 = require("./particle3");
 const d = require("./detectorFunctions");
-// const d1 = require("./detector1");
-const d2 = require("./detector2");
-const d3 = require("./detector3");
+
+const windowWidth = 600;
+const windowHeight = 400;
+const FPS = 60;
 
 const d1 = {
     start: 0,
@@ -15,9 +16,21 @@ const d1 = {
     color: r.WHITE,
 };
 
-const windowWidth = 600;
-const windowHeight = 400;
-const FPS = 60;
+const d2 = {
+    start: windowWidth / 2,
+    end: 0,
+    width: 30,
+    velocity: 3,
+    color: r.WHITE,
+};
+
+const d3 = {
+    start: 0,
+    end: 0,
+    height: 30,
+    velocity: 2,
+    color: r.WHITE,
+};
 
 function running() {
     return !r.WindowShouldClose();
