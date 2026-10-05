@@ -1,7 +1,7 @@
 const r = require("raylib");
-const p1 = require("./particle1");
-const p2 = require("./particle2");
-const p3 = require("./particle3");
+// const p1 = require("./particle1");
+// const p2 = require("./particle2");
+// const p3 = require("./particle3");
 const d = require("./detectorFunctions");
 
 const windowWidth = 600;
@@ -31,6 +31,27 @@ const d3 = {
     velocity: 2,
     color: r.WHITE,
 };
+
+const p1 = {};
+p1.start = 190;
+p1.y = 0;
+p1.width = 100;
+p1.height = windowHeight;
+p1.end = p1.start + p1.width;
+
+const p2 = {};
+p2.start = 400;
+p2.y = 0;
+p2.width = 50;
+p2.height = windowHeight;
+p2.end = p2.start + p2.width;
+
+const p3 = {};
+p3.x = 0;
+p3.y = 120;
+p3.width = windowWidth;
+p3.height = 30;
+p3.end = p3.y + p3.height;
 
 function running() {
     return !r.WindowShouldClose();
