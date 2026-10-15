@@ -13,34 +13,23 @@ function running() {
 }
 
 function setup() {
+    r.SetTraceLogLevel(r.LOG_NONE);
     r.InitWindow(windowWidth, windowHeight, "Moving Object");
     r.SetTargetFPS(60);
 }
 
 function update() {
-    if (y === 0) {
-        x = x + speed;
-        color = r.BLACK;
-    }
-    if (x + width === windowWidth) {
-        y = y + speed;
-        color = r.BLUE;
-    }
-    if (y + height === windowHeight) {
-        x = x - speed;
-        color = r.GREEN;
-    }
-    if (x === 0) {
-        y = y - speed;
-        color = r.PINK;
-    }
+    if (y === 0) x = x + speed;
+    if (x + width === windowWidth) y = y + speed;
+    if (y + height === windowHeight) x = x - speed;
+    if (x === 0) y = y - speed;
 }
 
 function draw() {
     r.BeginDrawing();
 
     r.ClearBackground(r.WHITE);
-    r.DrawRectangle(x, y, width, height, color);
+    r.DrawRectangle(x, y, width, height, r.BLACK);
 
     r.EndDrawing();
 }
